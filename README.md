@@ -39,7 +39,7 @@ just pass a function to the directive. The function will accept a parameter whic
 ```
 
 #### 2. you can also define the boundary element that you want.
-In this case, you need pass an array which has two parameters. One is a function like above, and another is a CSS selector that will be the boundary element. The order of the arguments does not matter.
+In this case, you need to pass an array which has two parameters. One is a function like above, and another is a CSS selector as the boundary element. The order of the arguments does not matter.
 
 ```js
 <template>
