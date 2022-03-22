@@ -1,0 +1,11 @@
+{
+  "name": "v3-click-outside",
+  "version": "1.0.0",
+  "description": "Vue3 directive to react on clicks outside an element without stopping the event propagation. Great for closing dialogues and menus among other things. Can Customizable boundary elements.",
+  "main": "v-click-outside.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DayDayUp",
+  "license": "MIT"
+}
