@@ -22,7 +22,7 @@ app.use(clickOutside)
 ```
 
 #### 1. If boundary element is the document.
-just pass a function to the directive. The function will accept a parameter which indicates is the click is outside or not.
+just pass a function to the directive. The function will accept a parameter which indicates whether the click is outside.
 
 ```js
 <template>

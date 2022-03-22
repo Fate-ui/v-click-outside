@@ -12,21 +12,21 @@ export default function useDirectives(app: any) {
         const fnIndex = value.findIndex((item) => item instanceof Function)
         const selectorIndex = Math.abs(fnIndex - 1)
         if (value.length == 0) {
-          console.error('未给v-click-outside指令传入处理函数，该函数接收一个参数（用来表示是否点击元素外部）')
+          console.error('No handler function is passed to the v-click-outside directive, which receives a parameter (used to indicate whether to click outside the element)')
           return
         }
         if (value.length > 2) {
-          console.error('v-click-outside指令的值为数组时最多接收两个元素，一个为处理函数（必选），一个为边界元素的CSS选择器（可选）')
+          console.error('When the value of the v-click-outside directive is an array, it receive up to two elements, one for the handler function (required), and one for the CSS selector of the boundary element (optional)')
           return
         }
         if (fnIndex == -1) {
-          console.error('未给v-click-outside指令传入处理函数，该函数接收一个参数（用来表示是否点击元素外部）')
+          console.error('No handler function is passed to the v-click-outside directive, which receives a parameter (used to indicate whether to click outside the element)')
           return
         }
         handleFn = value[fnIndex]
         selector = value[selectorIndex]
       } else if (!(handleFn instanceof Function)) {
-        console.error('v-click-outside指令的值只能是函数或数组，且数组必须有一个元素为函数，该函数接收一个参数（用来表示是否点击元素外部）')
+        console.error('The value of the v-click-outside directive can only be a function or an array, if array must have a function that receives a parameter (used to indicate whether to click outside the element)')
         return
       }
       function handleClickOutside(e) {
@@ -34,7 +34,7 @@ export default function useDirectives(app: any) {
       }
       let outElement = document.querySelector(selector)
       if (selector && !outElement) {
-        console.log(`%c 未找到${selector}元素，已把document对象设为外界元素`, 'color: red;')
+        console.log(`%c not found ${selector} element，used document as the boundary element`, 'color: red;')
         outElement = document
       } else if (!selector) {
         //默认给document添加点击事件
