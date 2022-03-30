@@ -32,13 +32,14 @@ export default function useDirectives(app: any) {
       function handleClickOutside(e) {
         handleFn(!e.composedPath().includes(el))
       }
-      let outElement = document.querySelector(selector)
-      if (selector && !outElement) {
-        console.log(`%c not found ${selector} element，used document as the boundary element`, 'color: red;')
-        outElement = document
-      } else if (!selector) {
-        //默认给document添加点击事件
-        outElement = document
+      let outElement: HTMLElement | Document = document
+      if (selector instanceof HTMLElement ) {
+        outElement = selector
+      } else {
+        outElement = document.querySelector(selector) || document
+        if (selector && !outElement) {
+          console.log(`%c not found ${selector} element，used document as the boundary element`, 'color: red;')
+        }
       }
 
       // @ts-ignore
