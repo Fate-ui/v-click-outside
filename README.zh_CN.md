@@ -1,17 +1,17 @@
-
 # v3-click-outside
 
-**English** | [中文](./README.zh_CN.md)
-> Vue3 directive to react on clicks outside an element. It is simple to use. And can Customizable boundary elements.
+**中文** | [English](./README.md)
+> 一个简单易用且可以自定义边界元素的vue3指令。
 
-## Install
+## 安装
+
 
 ```bash
 npm install --save v3-click-outside
 ```
 
 
-## Use
+## 使用
 
 ```js
 import { createApp } from 'vue'
@@ -22,9 +22,8 @@ const app = createApp(App)
 app.use(clickOutside)
 ```
 
-#### 1. If boundary element is the document.
-just pass a function to the directive. The function will accept a parameter which indicates whether the click is outside.
-
+#### 1. 默认`document`为边界元素
+您只需给指令要传入一个函数，函数将接收一个布尔类型的参数，表示是否点击了外部。
 ```js
 <template>
   <div v-click-outside="handleClickOustside"></div>
@@ -39,9 +38,8 @@ just pass a function to the directive. The function will accept a parameter whic
 </script>
 ```
 
-#### 2. you can also define the boundary element that you want.
-In this case, you need to pass an array which has two parameters. One is a function like above, and another is a CSS selector or a DOM element as the boundary element. The order of the arguments does not matter.
-
+#### 2. 自定义边界元素
+此时，将处理函数和边界元素放在一个数组里传给指令即可。边界元素可以为CSS选择器，也可以是一个DOM元素。函数和边界元素在数组内的位置没有要求。
 ```js
 <template>
   <div class="outer">
