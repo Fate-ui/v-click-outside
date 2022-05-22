@@ -46,11 +46,11 @@ export default function useDirectives(app: any) {
       binding.handleClickOutside = handleClickOutside
       // @ts-ignore
       binding.outElement = outElement
-      outElement.addEventListener('click', handleClickOutside, true)
+      outElement?.addEventListener('click', handleClickOutside, true)
     },
     beforeUnmount(el: any, binding: any, vNode: any) {
       // @ts-ignore
-      binding.outElement.removeEventListener('click', binding.handleClickOutside, true)
+      binding.outElement?.removeEventListener('click', binding.handleClickOutside, true)
     }
   })
 }
