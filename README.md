@@ -23,7 +23,7 @@ app.use(clickOutside)
 ```
 
 #### 1. If boundary element is the document.
-just pass a function to the directive. The function will accept a parameter which indicates whether the click is outside.
+just pass a function to the directive. The function will accept two parameters: one is a boolean which indicates whether the click is outside the element, the other is the event object.
 
 ```js
 <template>
@@ -32,7 +32,7 @@ just pass a function to the directive. The function will accept a parameter whic
 
 <script setup>
   //the function accept a booleam parameter, true indicate click outside
-  const handleClickOustside = (isOutside) => {
+  const handleClickOustside = (isOutside, e) => {
     if (isOutside) //do something
     else //do something else
   }
@@ -51,7 +51,7 @@ In this case, you need to pass an array which has two parameters. One is a funct
 
 <script setup>
   //the function accept a booleam parameter, true indicate click outside
-  const handleClickOustside = (isOutside) => {
+  const handleClickOustside = (isOutside, e) => {
     if (isOutside) //do something
     else //do something else
   }

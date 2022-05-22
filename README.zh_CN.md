@@ -23,7 +23,7 @@ app.use(clickOutside)
 ```
 
 #### 1. 默认`document`为边界元素
-您只需给指令要传入一个函数，函数将接收一个布尔类型的参数，表示是否点击了外部。
+您只需给指令要传入一个函数，函数接收两个参数:一个是布尔类型的参数，表示是否点击了外部，另一个是事件对象。
 ```js
 <template>
   <div v-click-outside="handleClickOustside"></div>
@@ -31,7 +31,7 @@ app.use(clickOutside)
 
 <script setup>
   //the function accept a booleam parameter, true indicate click outside
-  const handleClickOustside = (isOutside) => {
+  const handleClickOustside = (isOutside, e) => {
     if (isOutside) //do something
     else //do something else
   }
@@ -49,7 +49,7 @@ app.use(clickOutside)
 
 <script setup>
   //the function accept a booleam parameter, true indicate click outside
-  const handleClickOustside = (isOutside) => {
+  const handleClickOustside = (isOutside, e) => {
     if (isOutside) //do something
     else //do something else
   }

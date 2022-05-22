@@ -4,7 +4,7 @@ export default function useDirectives(app: any) {
    * 判断是否点击外部元素的指令
    * */
   app.directive('click-outside', {
-    mounted(el, binding, vNode) {
+    mounted(el: any, binding: any, vNode: any) {
       const value = binding.value
       let handleFn = value
       let selector
@@ -29,8 +29,8 @@ export default function useDirectives(app: any) {
         console.error('The value of the v-click-outside directive can only be a function or an array, if array must have a function that receives a parameter (used to indicate whether to click outside the element)')
         return
       }
-      function handleClickOutside(e) {
-        handleFn(!e.composedPath().includes(el))
+      function handleClickOutside(e: any) {
+        handleFn(!e.composedPath().includes(el), e)
       }
       let outElement: HTMLElement | Document = document
       if (selector instanceof HTMLElement ) {
@@ -48,7 +48,7 @@ export default function useDirectives(app: any) {
       binding.outElement = outElement
       outElement.addEventListener('click', handleClickOutside, true)
     },
-    beforeUnmount(el, binding, vNode) {
+    beforeUnmount(el: any, binding: any, vNode: any) {
       // @ts-ignore
       binding.outElement.removeEventListener('click', binding.handleClickOutside, true)
     }
